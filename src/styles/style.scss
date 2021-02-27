@@ -1,0 +1,40 @@
+.custom {
+  color: red;
+}
+
+.padder {
+  padding: 0px 20px 0px 20px;
+}
+
+.container {
+  padding: 10%;
+  flex: 1;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+}
+
+.grid-item {
+  height: 15rem;
+  width: 20rem;
+  background-color: red;
+  margin: 10px;
+}
+
+@media only screen and (max-device-width: 480px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+
+  .grid-item {
+    height: 10rem;
+    width: 7rem;
+    background-color: red;
+    margin: 10px;
+  }
+}
