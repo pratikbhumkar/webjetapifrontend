@@ -1,7 +1,9 @@
-import { SET_MOVIES } from "../actionTypes";
+import { SET_MOVIES, SET_FILMWORLDMOVIE, SET_CINEMAWORLDMOVIE } from "../actionTypes";
 
 const initialState = {
   movies: null,
+  currentCinemaWorldMovie: null,
+  currentFilmWorldMovie: null,
 };
 
 export default function movieReducer(state = initialState, action) {
@@ -10,6 +12,18 @@ export default function movieReducer(state = initialState, action) {
       return {
         ...state,
         movies: action.payload
+      };
+    }
+    case SET_FILMWORLDMOVIE: {
+      return {
+        ...state,
+        currentFilmWorldMovie: action.payload
+      };
+    }
+    case SET_CINEMAWORLDMOVIE: {
+      return {
+        ...state,
+        currentCinemaWorldMovie: action.payload
       };
     }
     default:

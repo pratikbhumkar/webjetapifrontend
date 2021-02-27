@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import HomeScreen from "./features/HomeScreen/HomeScreen";
 import MovieDetails from "./features/MovieDetails/MovieDetails";
+import Purchase from "./features/PurchaseScreen/Purchase";
 function App() {
   return (
     <div className="App">
@@ -16,6 +17,9 @@ function App() {
           <Switch>
             <Route path="/moviedetails">
               <MovieDetails />
+            </Route>
+            <Route path="/purchase">
+              <Purchase />
             </Route>
             <Route path="/">
               <HomeScreen />

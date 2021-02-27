@@ -1,4 +1,4 @@
-export const GetMovieDetails = async (cid, fid, history) => {
+export const GetMovieDetails = async (cid, fid, history, dispatch) => {
     var requestOptions = {
         method: 'GET'
     };
@@ -16,7 +16,12 @@ export const GetMovieDetails = async (cid, fid, history) => {
     }
     Promise.allSettled(promises).then((results) => {
         results.forEach(element => {
-            console.log('element==',element)
+            if (element.status === "fulfilled" && element.value.provider === "Cinemaworld") {
+                dispatch({ type: 'SET_CINEMAWORLDMOVIE', payload: element.value })
+            }else if (element.status === "fulfilled" && element.value.provider === "Filmworld"){
+                dispatch({ type: 'SET_FILMWORLDMOVIE', payload: element.value })
+            }
         });
+        history.push('/moviedetails')
     })
 } 

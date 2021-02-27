@@ -1,6 +1,6 @@
 import React from 'react'
 import { getMovies } from "../../redux/selectors";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import MovieContainer from './components/MovieContainer'
 import MovieSearchBox from './components/MovieSearchBox'
 import loading from "../../assets/loading.gif";
@@ -9,14 +9,18 @@ import { useHistory } from "react-router-dom";
 
 const HomeScreen = ({ movies }) => {
     const history = useHistory();
+    const dispatch = useDispatch();
+
     if (movies) {
         return (
             <div className="container">
-                <MovieSearchBox movies={movies} getMovieDetails={(cinemaWorldId, filmWorldId)=>GetMovieDetails(cinemaWorldId, filmWorldId, history)}/>
+                <MovieSearchBox movies={movies} />
                 <div className="grid-container">
                     {
                         movies?.map((movie, index) => {
-                            return <MovieContainer movie={movie} key={index} getMovieDetails={GetMovieDetails}/>
+                            return <MovieContainer movie={movie} key={index} getMovieDetails={(cinemaWorldId, filmWorldId) => {
+                                GetMovieDetails(cinemaWorldId, filmWorldId, history, dispatch)
+                            }} />
                         })
                     }
                 </div>
@@ -25,7 +29,7 @@ const HomeScreen = ({ movies }) => {
     } else {
         return (
             <div className="container">
-                <img src={loading} alt="Loading..."/>
+                <img src={loading} alt="Loading..." />
                 <h1>Please wait while the movies are loaded.</h1>
             </div>
         )
