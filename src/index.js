@@ -7,6 +7,9 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
 import store from "./redux/store/store";
 import './styles/style.scss';
+import { fetchMovies } from "./redux/reducers/movieReducer";
+
+store.dispatch(fetchMovies)
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>

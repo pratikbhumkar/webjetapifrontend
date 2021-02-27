@@ -71,11 +71,6 @@ export default function BackToTop(props) {
                 </Toolbar>
             </AppBar>
             <Toolbar id="back-to-top-anchor" />
-            <Container>
-                <Box my={2}>
-                    {props.content}
-                </Box>
-            </Container>
             <ScrollTop {...props}>
                 <Fab color="secondary" size="small" aria-label="scroll back to top">
                     <KeyboardArrowUpIcon />
