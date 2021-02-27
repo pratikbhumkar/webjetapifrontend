@@ -1,10 +1,10 @@
-import { SET_MOVIES, GET_MOVIES, GET_MOVIES_SUCCESS, GET_MOVIES_FAILURE } from "../actionTypes";
+import { SET_MOVIES } from "../actionTypes";
 
 const initialState = {
   movies: null,
 };
 
-export default function movieReducer (state = initialState, action) {
+export default function movieReducer(state = initialState, action) {
   switch (action.type) {
     case SET_MOVIES: {
       return {
@@ -18,7 +18,6 @@ export default function movieReducer (state = initialState, action) {
 }
 
 export async function fetchMovies(dispatch, getState) {
-
   var requestOptions = {
     method: 'GET'
   };
