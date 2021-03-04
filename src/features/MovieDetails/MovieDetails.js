@@ -26,12 +26,12 @@ const MovieDetails = ({ cinemaworldmovie, filmworldmovie }) => {
             />
             <p className="TitleText">{cinemaworldmovie?.title}</p>
             <p className="TitleText">Buy Now:</p>
-            {cinemaworldmovie && <Supplier bestPrice={bestPriceFlag === -1} 
+            {cinemaworldmovie && <Supplier bestPrice={bestPriceFlag === -1 || bestPriceFlag === 0} 
                                            price={cinemaworldmovie?.price} 
                                            supplierName={cinemaworldmovie?.provider} 
                                            onClick={(supplierName)=>purchaseMovie(supplierName, history, cinemaworldmovie)}
                                            />}
-            {filmworldmovie && <Supplier bestPrice={bestPriceFlag === 1} 
+            {filmworldmovie && <Supplier bestPrice={bestPriceFlag === 1 || bestPriceFlag === 0} 
                                          price={filmworldmovie?.price} 
                                          supplierName={filmworldmovie?.provider} 
                                          onClick={(supplierName)=>purchaseMovie(supplierName, history, filmworldmovie)}
