@@ -11,6 +11,10 @@ const MovieDetails = ({ cinemaworldmovie, filmworldmovie }) => {
     var bestPriceFlag = calculateBestPrice(Number(cinemaworldmovie?.price), Number(filmworldmovie?.price))
     const movieImageURL = cinemaworldmovie?.poster?.replace('http://ia.media-imdb.com', 'https://m.media-amazon.com')
     const history = useHistory();
+    //Falling back to homepage if the user tries to go to movie details page without movie selection by URL manipulation.
+    React.useEffect(() => {
+        (!cinemaworldmovie)&&(!filmworldmovie)&&history.push('/')
+    }, [])
     return (
         <div className="container">
             <img
