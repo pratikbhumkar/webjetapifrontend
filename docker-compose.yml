@@ -1,0 +1,13 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  web:
+    image: pratikbhumkar/webjetapifrontend
+  #Use "build: ." If "context" i.e. path to the dockerfile is in the same folder/current folder/"."
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development-env
+    ports:
+      - "4141:3000"
+    labels:
+      name: "Pratik's Docker compose tutorial on React App deployed on development environment."
