@@ -14,7 +14,9 @@ const HomeScreen = ({ movies }) => {
     if (movies) {
         return (
             <div className="container">
-                <MovieSearchBox movies={movies} />
+                <MovieSearchBox movies={movies} getMovieDetails={(cinemaWorldId, filmWorldId) => {
+                                GetMovieDetails(cinemaWorldId, filmWorldId, history, dispatch)
+                            }}/>
                 <div className="grid-container">
                     {
                         movies?.map((movie, index) => {
