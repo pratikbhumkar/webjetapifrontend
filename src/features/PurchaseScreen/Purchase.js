@@ -6,6 +6,10 @@ const Purchase = () => {
     const history = useHistory();
     var movie = history.location.state?.movie
     const movieImageURL = movie?.poster?.replace('http://ia.media-imdb.com', 'https://m.media-amazon.com')
+    //Falling back to homepage if the user tries to go to purchase page without movie selection by URL manipulation.
+    React.useEffect(() => {
+        (!movie)&&history.push('/')
+    }, [])
     return (
         <div className="container">
             <img
