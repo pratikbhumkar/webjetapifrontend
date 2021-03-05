@@ -10,7 +10,7 @@ import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Zoom from '@material-ui/core/Zoom';
 import CustomizedButton from "./CustomizedButton"
-
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -59,13 +59,16 @@ ScrollTop.propTypes = {
 };
 
 export default function BackToTop(props) {
+    const history = useHistory();
     return (
         <React.Fragment>
             <CssBaseline />
             <AppBar>
                 <Toolbar>
                     <Typography variant="h4">WebFlix</Typography>
-                    <span className="padder"><CustomizedButton title="Home" className="custom"/></span>
+                    <span className="padder"><CustomizedButton title="Home" className="custom" onClick={()=>{
+                        history.push('/')
+                    }}/></span>
                 </Toolbar>
             </AppBar>
             <Toolbar id="back-to-top-anchor" />
