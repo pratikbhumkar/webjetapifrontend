@@ -12,19 +12,19 @@ import Purchase from "./features/PurchaseScreen/Purchase";
 function App() {
   return (
     <div className="App">
-      <Navbar />
       <Router>
-          <Switch>
-            <Route path="/moviedetails">
-              <MovieDetails />
-            </Route>
-            <Route path="/purchase">
-              <Purchase />
-            </Route>
-            <Route path="/">
-              <HomeScreen />
-            </Route>
-          </Switch>
+        <Navbar />
+        <Switch>
+          <Route path="/moviedetails">
+            <MovieDetails />
+          </Route>
+          <Route path="/purchase">
+            <Purchase />
+          </Route>
+          <Route path="/">
+            <HomeScreen />
+          </Route>
+        </Switch>
       </Router>
     </div>
   );
